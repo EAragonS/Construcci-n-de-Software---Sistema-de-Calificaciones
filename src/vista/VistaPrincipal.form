@@ -33,13 +33,14 @@
                   <Component id="etiquetaAsignatura" min="-2" pref="86" max="-2" attributes="0"/>
                   <Component id="etiquetaCalificacion" min="-2" pref="86" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="campoCalificacion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="149" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="campoAsignatura" min="-2" max="-2" attributes="0"/>
                           <Component id="campoNombre" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
@@ -47,21 +48,13 @@
                           <Component id="campoApellidoPaterno" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                           <Component id="campoMatricula" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="131" max="32767" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="botonCargarArchivo" max="32767" attributes="0"/>
-                                  <Component id="botonGuardarListaAlumnos" max="32767" attributes="0"/>
-                                  <Component id="botonCrearPDF" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="botonCrearUsuario" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="botonCargarArchivo" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                          <Component id="botonGuardarListaAlumnos" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonCrearPDF" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -71,9 +64,11 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Component id="botonAgregarAlumno" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="botonEliminarAlumno" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,7 +79,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="etiquetaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonCrearUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -93,21 +87,21 @@
                           <Component id="etiquetaApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="campoApellidoPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botonCargarArchivo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="etiquetaApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="campoApellidoMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="campoNombre" min="-2" max="-2" attributes="0"/>
                           <Component id="etiquetaNombre" min="-2" max="-2" attributes="0"/>
@@ -116,25 +110,28 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="etiquetaAsignatura" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="campoAsignatura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonCrearPDF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="etiquetaCalificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="campoCalificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="botonAgregarAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonEliminarAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="271" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="botonGuardarListaAlumnos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Component id="botonCrearPDF" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="botonAgregarAlumno" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="271" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -221,11 +218,6 @@
         <Property name="text" type="java.lang.String" value="Crear PDF"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botonCrearUsuario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Crear Usuario"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="campoAsignatura">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -248,6 +240,11 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="70" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonEliminarAlumno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Alumno"/>
       </Properties>
     </Component>
   </SubComponents>

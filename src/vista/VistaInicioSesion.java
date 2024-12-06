@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InterfazInicioSesion extends JFrame {
+public class VistaInicioSesion extends JFrame {
     private JTextField campoUsuario;
     private JPasswordField campoContrasena;
     private JButton botonIniciarSesion;
     private JButton botonCancelar;
 
-    public InterfazInicioSesion() {
+    public VistaInicioSesion() {
         setTitle("Iniciar Sesión");
         setSize(400, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +93,7 @@ public class InterfazInicioSesion extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                InterfazInicioSesion interfaz = new InterfazInicioSesion();
+                VistaInicioSesion interfaz = new VistaInicioSesion();
                 interfaz.setVisible(true);
             }
         });
