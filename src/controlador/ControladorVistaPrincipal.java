@@ -117,17 +117,16 @@ public class ControladorVistaPrincipal {
         String asignatura = (String) vista.getCampoAsignatura().getSelectedItem();
         int calificacion = (int) vista.getCampoCalificacion().getValue();
 
-        if (validarDuplicado(matricula, asignatura)) {
-            return;
-        }
-
         Alumno alumno = new Alumno(matricula, apellidoPaterno, apellidoMaterno, nombre);
         alumno.agregarCalificacion(new Calificacion(asignatura, calificacion));
-        gestionAlumnos.agregarAlumno(alumno);
 
-        actualizarVistaConAlumnos(gestionAlumnos.getListaAlumnos());
-        limpiarCampos();
-        alumnoSeleccionado = null;
+        if (gestionAlumnos.agregarAlumno(alumno)) {
+            actualizarVistaConAlumnos(gestionAlumnos.getListaAlumnos());
+            limpiarCampos();
+            alumnoSeleccionado = null;
+        } else {
+            mostrarMensaje("Ya existe un alumno con la misma matrícula y asignatura", "Error de duplicado", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**

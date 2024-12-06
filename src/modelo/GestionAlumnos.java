@@ -28,8 +28,24 @@ public class GestionAlumnos {
      *
      * @param alumno Alumno a agregar.
      */
-    public void agregarAlumno(Alumno alumno) {
+    public boolean agregarAlumno(Alumno alumno) {
+        // Verificar si ya existe un alumno con la misma matrícula y asignatura
+        for (Alumno alumnoExistente : alumnoDAO.getListaAlumnos()) {
+            if (alumnoExistente.getMatricula().equals(alumno.getMatricula())) {
+                for (Calificacion calificacion : alumnoExistente.getCalificaciones()) {
+                    for (Calificacion nuevaCalificacion : alumno.getCalificaciones()) {
+                        if (calificacion.getAsignatura().equals(nuevaCalificacion.getAsignatura())) {
+                            // Ya existe un alumno con la misma matrícula y asignatura
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Si no se encontró un duplicado, agregar el alumno
         alumnoDAO.getListaAlumnos().add(alumno);
+        return true;
     }
 
     /**
@@ -118,6 +134,7 @@ public class GestionAlumnos {
      * @return true si la matrícula es válida, false en caso contrario.
      */
     public static boolean esMatriculaValida(String matricula) {
+        // La expresión regular se refiere a que la matrícula tiene que ser de 8 dígitos exactamente.
         return Pattern.matches("^\\d{8}$", matricula);
     }
 }
