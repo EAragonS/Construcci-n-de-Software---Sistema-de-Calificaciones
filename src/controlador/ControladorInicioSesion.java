@@ -30,7 +30,7 @@ public class ControladorInicioSesion {
 
     /**
      * Constructor que inicializa el controlador con la vista de inicio de sesión.
-     * @param vista la interfaz gráfica de inicio de sesión.
+     * @param vista es la interfaz gráfica de inicio de sesión.
      */
     public ControladorInicioSesion(VistaInicioSesion vista) {
         this.vista = vista;

@@ -23,7 +23,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 /**
  * Controlador para manejar la interacción entre la vista principal y el modelo de gestión de alumnos.
  */
-public class ControladorInterfazPrincipal {
+public class ControladorVistaPrincipal {
     private GestionAlumnos gestionAlumnos;
     private VistaPrincipal vista;
     private Alumno alumnoSeleccionado;
@@ -32,7 +32,7 @@ public class ControladorInterfazPrincipal {
      * Constructor que inicializa el controlador con la vista principal.
      * @param vista la vista principal de la aplicación.
      */
-    public ControladorInterfazPrincipal(VistaPrincipal vista) {
+    public ControladorVistaPrincipal(VistaPrincipal vista) {
         this.gestionAlumnos = new GestionAlumnos();
         this.vista = vista;
         this.alumnoSeleccionado = null;

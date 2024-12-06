@@ -2,7 +2,7 @@ package vista;
 
 import javax.swing.*;
 import java.awt.*;
-import controlador.ControladorInterfazPrincipal;
+import controlador.ControladorVistaPrincipal;
 
 /**
  *
@@ -10,11 +10,11 @@ import controlador.ControladorInterfazPrincipal;
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 
-    private ControladorInterfazPrincipal controlador;
+    private ControladorVistaPrincipal controlador;
 
     public VistaPrincipal() {
         initComponents();
-        this.controlador = new ControladorInterfazPrincipal(this);
+        this.controlador = new ControladorVistaPrincipal(this);
     }
     
     public javax.swing.JButton getBotonAgregarAlumno() {
