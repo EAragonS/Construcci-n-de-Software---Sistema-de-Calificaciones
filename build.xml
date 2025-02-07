@@ -10,7 +10,6 @@
 <project name="RefactorizacionSistemaCalificaciones" default="default" basedir=".">
     <description>Builds, tests, and runs the project RefactorizacionSistemaCalificaciones.</description>
     <import file="nbproject/build-impl.xml"/>
-    <arg value="-Dsonar.exclusions=**/*.java"/>
 
     <!--
 
