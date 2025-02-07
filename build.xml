@@ -70,4 +70,14 @@
     nbproject/build-impl.xml file. 
 
     -->
+
+        <target name="sonar">
+        <exec executable="sonar-scanner">
+            <arg value="-Dsonar.projectKey=your-project-key"/>
+            <arg value="-Dsonar.organization=your-org"/>
+            <arg value="-Dsonar.host.url=https://sonarcloud.io"/>
+            <arg value="-Dsonar.login=${SONAR_TOKEN}"/>
+        </exec>
+    </target>
+
 </project>
