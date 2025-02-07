@@ -73,8 +73,8 @@
 
         <target name="sonar">
         <exec executable="sonar-scanner">
-            <arg value="-Dsonar.projectKey=your-project-key"/>
-            <arg value="-Dsonar.organization=your-org"/>
+            <arg value="-Dsonar.projectKey=EAragonS_Construcci-n-de-Software---Sistema-de-Calificaciones"/>
+            <arg value="-Dsonar.organization=Elias Aragon"/>
             <arg value="-Dsonar.host.url=https://sonarcloud.io"/>
             <arg value="-Dsonar.login=${SONAR_TOKEN}"/>
         </exec>
