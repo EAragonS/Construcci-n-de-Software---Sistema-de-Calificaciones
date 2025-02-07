@@ -10,49 +10,6 @@
 <project name="RefactorizacionSistemaCalificaciones" default="default" basedir=".">
     <description>Builds, tests, and runs the project RefactorizacionSistemaCalificaciones.</description>
     <import file="nbproject/build-impl.xml"/>
-    <property name="jacoco.execfile" value="build/jacoco.exec"/>
-<property name="jacoco.report.dir" value="build/reports/jacoco"/>
-<property name="jacoco.xml.report" value="build/reports/jacoco/report.xml"/>
-
-<!-- Ejecutar pruebas con cobertura -->
-<target name="test-with-coverage">
-    <mkdir dir="${jacoco.report.dir}"/>
-
-    <junit fork="yes">
-        <jvmarg value="-javaagent:lib/jacocoagent.jar=destfile=${jacoco.execfile}"/>
-        <classpath>
-            <pathelement path="build/classes"/>
-            <pathelement path="build/test/classes"/>
-            <pathelement path="lib/junit-4.13.2.jar"/>  <!-- Asegúrate de tener la versión correcta de JUnit -->
-        </classpath>
-        <batchtest>
-            <fileset dir="test">
-                <include name="**/*.java"/>
-            </fileset>
-        </batchtest>
-    </junit>
-</target>
-
-<!-- Generar reporte en XML para SonarCloud -->
-<target name="jacoco-report">
-    <taskdef name="jacocoReport" classname="org.jacoco.ant.ReportTask" classpath="lib/jacocoant.jar"/>
-    <jacocoReport>
-        <executiondata>
-            <file file="${jacoco.execfile}"/>
-        </executiondata>
-        <structure name="Project">
-            <classfiles>
-                <fileset dir="build/classes"/>
-            </classfiles>
-            <sourcefiles>
-                <fileset dir="src"/>
-            </sourcefiles>
-        </structure>
-        <xml destfile="${jacoco.xml.report}"/>
-    </jacocoReport>
-</target>
-
-
     <!--
 
     There exist several targets which are by default empty and which can be 
