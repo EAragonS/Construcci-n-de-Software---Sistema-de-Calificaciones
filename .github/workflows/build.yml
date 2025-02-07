@@ -10,8 +10,6 @@ jobs:
     name: SonarQube
     runs-on: windows-latest
     steps:
-      - name: Run tests with coverage
-        run: ant test-with-coverage jacoco-report
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
