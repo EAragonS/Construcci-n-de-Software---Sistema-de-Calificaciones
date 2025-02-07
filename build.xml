@@ -70,4 +70,39 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <property name="jacoco.agent" value="lib/jacocoagent.jar"/>
+<property name="jacoco.exec" value="build/jacoco.exec"/>
+<property name="jacoco.cli" value="lib/jacococli.jar"/>
+
+<target name="test-with-coverage" depends="compile">
+    <mkdir dir="build/reports/jacoco"/>
+    <junit printsummary="yes" fork="yes">
+        <jvmarg value="-javaagent:${jacoco.agent}=destfile=${jacoco.exec}"/>
+        <classpath>
+            <pathelement location="build/classes"/>
+            <pathelement location="lib/junit-4.13.2.jar"/> <!-- Asegúrate de tener JUnit -->
+        </classpath>
+        <batchtest>
+            <fileset dir="test">
+                <include name="**/*Test.java"/>
+            </fileset>
+        </batchtest>
+    </junit>
+</target>
+
+<target name="jacoco-report">
+    <exec executable="java">
+        <arg value="-jar"/>
+        <arg value="${jacoco.cli}"/>
+        <arg value="report"/>
+        <arg value="${jacoco.exec}"/>
+        <arg value="--classfiles"/>
+        <arg value="build/classes"/>
+        <arg value="--sourcefiles"/>
+        <arg value="src"/>
+        <arg value="--xml"/>
+        <arg value="build/reports/jacoco/report.xml"/>
+    </exec>
+</target>
+
 </project>
