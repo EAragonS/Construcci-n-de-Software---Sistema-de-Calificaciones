@@ -5,6 +5,7 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarqube:
     name: SonarQube
@@ -12,7 +13,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Para un análisis más preciso
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Ant
+        run: choco install ant -y
+
+      - name: Run tests with coverage
+        run: ant test-with-coverage
+
+      - name: Generate JaCoCo report
+        run: ant jacoco-report
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
