@@ -1,0 +1,34 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - main  # O cualquier rama en la que quieras ejecutar el análisis
+  pull_request:
+    branches:
+      - main  # O cualquier rama de destino de tus pull requests
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Clonamos el código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Paso 2: Configuramos SonarCloud
+      - name: Set up SonarCloud
+        uses: sonarsource/sonarcloud-github-action@v2
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}  # SonarCloud Token (configurado en Secrets)
+
+      # Paso 3: Ejecutamos Ant (esto depende de tu configuración de Ant)
+      - name: Build with Ant
+        run: |
+          sudo apt-get install ant  # Instala Ant si no está presente
+          ant -f build.xml
+
+      # Paso 4: Ejecutamos el análisis de SonarCloud
+      - name: Run SonarCloud Analysis
+        run: ant sonar  # Ejecuta el target de SonarCloud definido en build.xml
