@@ -23,12 +23,17 @@ jobs:
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}  # SonarCloud Token (configurado en Secrets)
 
-      # Paso 3: Ejecutamos Ant (esto depende de tu configuración de Ant)
+      # Paso 3: (Opcional) Instalar Ant, solo si no está instalado
+      - name: Install Ant
+        run: |
+          sudo apt-get install ant  # Instalamos Ant si no está presente
+        if: ${{ runner.os == 'Ubuntu' }}  # Solo en Ubuntu si es necesario
+
+      # Paso 4: Ejecutar la construcción con Ant
       - name: Build with Ant
         run: |
-          sudo apt-get install ant  # Instala Ant si no está presente
-          ant -f build.xml
+          ant -f build.xml  # Ejecuta la construcción según tu build.xml
 
-      # Paso 4: Ejecutamos el análisis de SonarCloud
+      # Paso 5: Ejecutar el análisis de SonarCloud
       - name: Run SonarCloud Analysis
         run: ant sonar  # Ejecuta el target de SonarCloud definido en build.xml
