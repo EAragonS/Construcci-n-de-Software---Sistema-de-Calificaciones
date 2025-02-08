@@ -71,44 +71,59 @@
 
     -->
     <!-- Import del build automático de NetBeans -->
-    <import file="nbproject/build-impl.xml"/>
+<import file="nbproject/build-impl.xml"/>
 
-    <!-- Propiedades de JaCoCo -->
-    <property name="jacoco.agent" value="lib/jacocoagent.jar"/>
-    <property name="jacoco.execfile" value="build/jacoco.exec"/>
-    <property name="jacoco.report.dir" value="build/reports/jacoco"/>
-    <property name="jacoco.cli" value="lib/jacococli.jar"/>
+<!-- Propiedades de JaCoCo -->
+<property name="jacoco.agent" value="lib/jacocoagent.jar"/>
+<property name="jacoco.execfile" value="build/jacoco.exec"/>
+<property name="jacoco.report.dir" value="build/reports/jacoco"/>
+<property name="jacoco.cli" value="lib/jacococli.jar"/>
 
-    <!-- Target para ejecutar pruebas con cobertura -->
-    <target name="test-with-coverage" depends="compile">
-        <mkdir dir="${jacoco.report.dir}"/>
+<!-- Target para compilar los tests -->
+<target name="compile-tests" depends="compile">
+    <mkdir dir="build/test/classes"/>
+    <javac includeantruntime="false" srcdir="test" destdir="build/test/classes">
+        <classpath>
+            <pathelement location="build/classes"/>
+            <fileset dir="lib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </classpath>
+    </javac>
+</target>
 
-        <junit printsummary="yes" fork="yes">
-            <jvmarg value="-javaagent:${jacoco.agent}=destfile=${jacoco.execfile}"/>
-            <classpath>
-                <pathelement location="build/classes"/>
-                <pathelement location="build/test/classes"/>
-                <pathelement location="lib/junit-4.13.2.jar"/> <!-- Ajusta si usas otra versión -->
-            </classpath>
-            <batchtest>
-                <fileset dir="test">
-                    <include name="**/*Test.java"/>
-                </fileset>
-            </batchtest>
-        </junit>
-    </target>
+<!-- Target para ejecutar pruebas con cobertura -->
+<target name="test-with-coverage" depends="compile-tests">
+    <mkdir dir="${jacoco.report.dir}"/>
 
-    <!-- Target para generar el reporte de cobertura en formato XML -->
-    <target name="jacoco-report" depends="test-with-coverage">
-        <java jar="${jacoco.cli}" fork="true">
-            <arg value="report"/>
-            <arg value="${jacoco.execfile}"/>
-            <arg value="--classfiles"/>
-            <arg value="build/classes"/>
-            <arg value="--sourcefiles"/>
-            <arg value="src"/>
-            <arg value="--xml"/>
-            <arg value="${jacoco.report.dir}/report.xml"/>
-        </java>
-    </target>
+    <junit printsummary="yes" fork="yes">
+        <jvmarg value="-javaagent:${jacoco.agent}=destfile=${jacoco.execfile}"/>
+        <classpath>
+            <pathelement location="build/classes"/>
+            <pathelement location="build/test/classes"/>
+            <fileset dir="lib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </classpath>
+        <batchtest>
+            <fileset dir="test">
+                <include name="**/*Test.java"/>
+            </fileset>
+        </batchtest>
+    </junit>
+</target>
+
+<!-- Target para generar el reporte de cobertura en formato XML -->
+<target name="jacoco-report" depends="test-with-coverage">
+    <java jar="${jacoco.cli}" fork="true">
+        <arg value="report"/>
+        <arg value="${jacoco.execfile}"/>
+        <arg value="--classfiles"/>
+        <arg value="build/classes"/>
+        <arg value="--sourcefiles"/>
+        <arg value="src"/>
+        <arg value="--xml"/>
+        <arg value="${jacoco.report.dir}/report.xml"/>
+    </java>
+</target>
 </project>
