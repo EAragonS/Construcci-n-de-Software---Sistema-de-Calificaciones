@@ -24,22 +24,11 @@ jobs:
       - name: Install Ant
         run: choco install ant -y
 
-      - name: Run tests with coverage
-        run: ant test-with-coverage
-
-      - name: Compile Tests
-        run: ant compile-tests
-
-      - name: Generate JaCoCo report
-        run: ant jacoco-report
-
-      - name: Upload JaCoCo report
-        uses: actions/upload-artifact@v4
-        with:
-          name: jacoco-report
-          path: build/reports/jacoco/report.xml              
-
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/report.xml
+
