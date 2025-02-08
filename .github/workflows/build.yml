@@ -27,6 +27,9 @@ jobs:
       - name: Run tests with coverage
         run: ant test-with-coverage
 
+      - name: Compile Tests
+        run: ant compile-tests
+
       - name: Generate JaCoCo report
         run: ant jacoco-report
 
