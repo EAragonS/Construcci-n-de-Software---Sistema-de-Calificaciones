@@ -33,6 +33,12 @@ jobs:
       - name: Generate JaCoCo report
         run: ant jacoco-report
 
+      - name: Upload JaCoCo report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: build/reports/jacoco/report.xml              
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
